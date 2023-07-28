@@ -20,7 +20,7 @@ import java.util.BitSet;
  * @author tommywoodley
  * @param <E> the type of element in the bloom filter e.g. String, Integer, Long
  */
-public class BloomFilter<E> {
+public class BloomFilter<E> implements ProbabilisticSet<E> {
   private BitSet bitset;
   private final int bitSetSize;
   private int numberOfAddedElements;
@@ -49,6 +49,7 @@ public class BloomFilter<E> {
    * @param element The element to be added to the Bloom filter.
    * @throws NullPointerException If the specified element is null.
    */
+  @Override
   public void put(E element) {
     put(element.toString().getBytes(charset));
   }
@@ -75,6 +76,7 @@ public class BloomFilter<E> {
    * @return {@code true} if the element might be in the set, {@code false} if it is definitely not in the set.
    * @throws NullPointerException If the specified element is null.
    */
+  @Override
   public boolean mightContain(E element) {
     return mightContain(element.toString().getBytes(charset));
   }
@@ -98,6 +100,7 @@ public class BloomFilter<E> {
    *
    * @return The number of elements in the bloom filter.
    */
+  @Override
   public int size() {
     return this.numberOfAddedElements;
   }
