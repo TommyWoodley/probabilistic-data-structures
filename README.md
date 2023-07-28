@@ -33,7 +33,7 @@ If you prefer to use the Java files directly, you can download the entire packag
 
 The repository includes the following probabilistic data structures:
 
-1. Bloom Filter
+1. [Bloom Filter](src/main/java/org/tommywoodley/BloomFilter.java)
 2. Stable Bloom Filter
 3. Scalable Bloom Filter
 4. Counting Bloom Filter
