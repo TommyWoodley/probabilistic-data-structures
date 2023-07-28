@@ -47,7 +47,27 @@ The repository includes the following probabilistic data structures:
 12. Scalable Bloom Filter 
 13. Top-K
 
-Each data structure is implemented within the `com.tommywoodley.probabilisticdatastructures` package with a focus on efficiency, accuracy, and ease of use. Refer to the individual class files for more details on each data structure.
+Each data structure is implemented as a separate Java class, and its usage is documented in the respective class file. To use a specific data structure, you can include the relevant Java class in your project and follow the usage instructions provided in the class documentation.
+```java
+import com.tommywoodley.BloomFilter;
+
+public class Main {
+    public static void main(String[] args) {
+        // Create a BloomFilter with a given false positive probability and expected number of elements
+        BloomFilter<String> bloomFilter = new BloomFilter<>(0.001, 1000);
+
+        // Add elements to the filter
+        bloomFilter.add("apple");
+        bloomFilter.add("banana");
+        bloomFilter.add("orange");
+
+        // Check for membership
+        boolean isPresent = bloomFilter.contains("apple");
+        System.out.println("Is 'apple' present in the BloomFilter? " + isPresent);
+    }
+}
+
+```
 
 ## Contributing
 
