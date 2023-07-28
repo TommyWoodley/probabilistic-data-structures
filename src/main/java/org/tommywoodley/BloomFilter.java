@@ -113,4 +113,25 @@ public class BloomFilter<E> {
   public int size() {
     return this.numberOfAddedElements;
   }
+
+  /**
+   * Get the current false positive probability of the Bloom Filter.
+   *
+   * @return The current false positive probability as a double value between 0 and 1.
+   *         A value closer to 0 indicates a lower probability of false positives,
+   *         while a value closer to 1 indicates a higher probability of false positives.
+   *
+   * @see #put(E)
+   * @see #mightContain(E)
+   */
+  public double getFalsePositiveProbability() {
+    return getFalsePositiveProbability(numberOfAddedElements);
+  }
+
+  private double getFalsePositiveProbability(double numberOfElements) {
+    // (1 - e^(-k * n / m)) ^ k
+    return Math.pow((1 - Math.exp(-k * numberOfElements
+        / (double) bitSetSize)), k);
+
+  }
 }
