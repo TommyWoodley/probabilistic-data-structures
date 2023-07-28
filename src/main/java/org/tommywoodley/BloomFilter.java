@@ -27,29 +27,17 @@ public class BloomFilter<E> {
   private final int k;
   static final Charset charset = StandardCharsets.UTF_8; // encoding used for storing hash values as strings
 
-  public BloomFilter(double c, int n, int k) {
+  private BloomFilter(double c, int n, int k) {
     this.k = k;
     this.bitSetSize = (int)Math.ceil(c * n);
     numberOfAddedElements = 0;
     this.bitset = new BitSet(bitSetSize);
   }
 
-  public BloomFilter(int bitSetSize, int expectedNumberOElements) {
-    this(bitSetSize / (double)expectedNumberOElements,
-        expectedNumberOElements,
-        (int) Math.round((bitSetSize / (double)expectedNumberOElements) * Math.log(2.0)));
-  }
-
   public BloomFilter(double falsePositiveProbability, int expectedNumberOfElements) {
     this(Math.ceil(-(Math.log(falsePositiveProbability) / Math.log(2))) / Math.log(2), // c = k / ln(2)
         expectedNumberOfElements,
         (int)Math.ceil(-(Math.log(falsePositiveProbability) / Math.log(2)))); // k = ceil(-log_2(false prob.))
-  }
-
-  public BloomFilter(int bitSetSize, int expectedNumberOfFilterElements, int actualNumberOfFilterElements, BitSet filterData) {
-    this(bitSetSize, expectedNumberOfFilterElements);
-    this.bitset = filterData;
-    this.numberOfAddedElements = actualNumberOfFilterElements;
   }
 
   /**
