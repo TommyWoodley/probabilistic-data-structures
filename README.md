@@ -34,18 +34,16 @@ If you prefer to use the Java files directly, you can download the entire packag
 The repository includes the following probabilistic data structures:
 
 1. [Bloom Filter](src/main/java/org/tommywoodley/BloomFilter.java)
-2. Stable Bloom Filter
-3. Scalable Bloom Filter
-4. Counting Bloom Filter
-5. Count-Min Sketch
-6. Cuckoo Filter
-7. Deletable Bloom Filter
-8. HyperLogLog
-9. Inverse Bloom Filter
-10. MinHash
-11. Partitioned Bloom Filter
-12. Scalable Bloom Filter 
-13. Top-K
+2. [Scalable Bloom Filter](src/main/java/org/tommywoodley/ScalableBloomFilter.java)
+3. [Counting Bloom Filter](src/main/java/org/tommywoodley/CountingBloomFilter.java)
+4. Count-Min Sketch
+5. Cuckoo Filter
+6. Deletable Bloom Filter
+7. HyperLogLog
+8. Inverse Bloom Filter 
+9. MinHash 
+10. Partitioned Bloom Filter
+12. Top-K
 
 Each data structure is implemented as a separate Java class, and its usage is documented in the respective class file. To use a specific data structure, you can include the relevant Java class in your project and follow the usage instructions provided in the class documentation.
 ```java
